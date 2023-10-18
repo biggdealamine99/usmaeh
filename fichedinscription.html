@@ -1,0 +1,210 @@
+<html>
+<head>
+  <style>
+    /* Utilisez les éléments de marque de l'université (couleurs, logo) */
+    body {
+      background-color: #f0f0f0; /* Utilisez une couleur de fond claire pour le corps */
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      border: 1px solid #cccccc;
+      padding: 10px;
+    }
+
+    input[type="radio"] {
+      display: inline-block;
+      width: auto;
+    }
+
+    .radio-label {
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    .password-strength {
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    .weak {
+      color: red;
+    }
+
+    .medium {
+      color: orange;
+    }
+
+    .strong {
+      color: green;
+    }
+
+    .terms {
+      margin-top: 20px;
+    }
+
+    .terms input {
+      display: inline-block;
+      width: auto;
+    }
+
+    .terms a {
+      color: #333333;
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      border: none;
+      padding: 15px 25px;
+      background-color: #333333; /* Utilisez la couleur principale de l'université */
+      color: white; /* Utilisez la couleur secondaire de l'université */
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color:#555555; /* Utilisez une nuance plus foncée de la couleur principale */
+    }
+    
+     @media (max-width :600px) { /* Utilisez un design adaptatif pour s'adapter aux différentes tailles d'écran */
+       .buttons button {
+         width :100%;
+       }
+     }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+     <h1>USMAEH (université sidi mohammed amine em hamidi)</h1> <!-- Placez un titre clair et concis en haut -->
+    
+     <form id="signup-form" action="signup.php" method="post" enctype="multipart/form-data">
+      
+       <!-- Nom complet (Prénom, Nom) : Champs de saisie de texte -->
+       <label for="first-name">Prénom</label>
+       <input type="text" id="first-name" name="first_name" placeholder="Entrez votre prénom" required>
+      
+       <label for="last-name">Nom</label>
+       <input type="text" id="last-name" name="last_name" placeholder="Entrez votre nom" required>
+      
+       <!-- Adresse e-mail : Champ de saisie de texte avec validation de l'e-mail -->
+       <label for="email">Adresse e-mail</label>
+       <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required>
+      
+       <!-- Mot de passe : Champ de saisie du mot de passe avec indicateur de force -->
+       <label for="password">Mot de passe</label>
+       <input type="password" id="password" name="password" placeholder="Entrez un mot de passe fort" required>
+       <span class="password-strength"></span> <!-- Affichez la force du mot de passe dynamiquement -->
+      
+       <!-- Confirmer le mot de passe : Champ de saisie du mot de passe pour confirmation -->
+       <label for="confirm-password">Confirmer le mot de passe</label>
+       <input type="password" id="confirm-password" name="confirm_password" placeholder="Ré-entrez votre mot de passe" required>
+      
+       <!-- Date de naissance : Sélecteur de date ou trois menus déroulants séparés (jour, mois, année) -->
+       <label for="dob">Date de naissance</label>
+       <input type="date" id="dob" name="dob" required> <!-- Utilisez un sélecteur de date -->
+      
+       <!-- Genre : Boutons radio (Homme, Femme, Autre) -->
+       <label>Genre</label>
+       <input type="radio" id="male" name="gender" value="male" required>
+       <label for="male" class="radio-label">Homme</label>
+       <input type="radio" id="female" name="gender" value="female" required>
+       <label for="female" class="radio-label">Femme</label>
+      
+       <!-- Numéro de contact : Champ de saisie de texte -->
+       <label for="contact-number">Numéro de contact</label>
+       <input type="text" id="contact-number" name="contact_number" placeholder="Entrez votre numéro de contact">
+      
+       <!-- Adresse : Champ de saisie de texte multiligne -->
+       <label for="address">Adresse</label>
+       <textarea id="address" name="address" placeholder="Entrez votre adresse"></textarea>
+      
+       <!-- Pays : Menu déroulant avec une liste de pays -->
+       <label for="country">Pays</label>
+       <select id="country" name="country" required>
+         <option value="">Sélectionnez votre pays</option>
+         <option value="Maroc">Maroc</option> <!-- Faites en sorte que les pays n'incluent que le Maroc -->
+       </select>
+      
+       <!-- Programme d'intérêt : Menu déroulant avec une liste de programmes disponibles -->
+       <label for="program">Programme d'intérêt</label>
+       <select id="program" name="program" required>
+         <option value="">Sélectionnez votre programme d'intérêt</option>
+         <option value="Informatique">Informatique</option>
+         <option value="Ingénierie">Ingénierie</option>
+         <!-- Ajoutez plus d'options pour d'autres programmes -->
+         <option value="Psychologie">Psychologie</option>
+       </select>
+
+      <!-- CIN : Champ de saisie de texte avec validation du CIN -->
+      <!-- Ajoutez un champ CIN pour le numéro d'identité nationale -->
+      <label for = "cin">CIN</label>
+      <input type = "text" id = "cin" name = "cin" pattern = "[A-Z] {1,2} [0-9] {6}" placeholder = "Entrez votre CIN (ex: AB123456)" required>
+
+      <!-- Incluez des cases à cocher pour accepter les conditions générales et les politiques de confidentialité -->
+      <!-- Ajoutez des liens vers les documents des conditions générales et des politiques de confidentialité -->
+      <div class = "terms">
+        <input type = "checkbox" id = "terms" name = "terms" required>
+        <label for = "terms">J'accepte les <a href="#">Conditions générales</a></label>
+        <input type = "checkbox" id = "privacy" name = "privacy" required>
+        <label for = "privacy">J'accepte la <a href="#">Politique de confidentialité</a></label>
+      </div>
+
+      <!-- Boutons "S'inscrire", "Effacer", et "Annuler" -->
+      <!-- Clairs et visibles, indiquant l'action -->
+      <!-- Facultatifs mais peuvent être inclus pour effacer le formulaire -->
+      <!-- Si nécessaire, pour les utilisateurs qui veulent quitter le formulaire sans s'inscrire -->
+      <div class = "buttons">
+        <button type = "submit">S'inscrire</button> 
+        <button type = "reset">Effacer</button> 
+        <button type = "button" onclick = "window.location.href='index.html'">Annuler</button> 
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- Utilisez la validation côté client pour un retour immédiat et la validation côté serveur pour la sécurité -->
+  <!-- Affichez des messages de validation pour une saisie incorrecte ou des champs manquants -->
+  <!-- Affichez la force du mot de passe dynamiquement -->
+  <!-- Utilisez une couleur différente pour le texte d'erreur pour le faire ressortir -->
+  <!-- Mettez en évidence les champs avec des erreurs et affichez des messages d'erreur près d'eux -->
+  <!-- Après une
